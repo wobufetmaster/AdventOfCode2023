@@ -1,8 +1,4 @@
 import re
-import os
-
-
-
 
 def line_is_valid(line: str) -> bool:
     ball_amounts = {'red': 12, 'green': 13, 'blue': 14}
@@ -18,7 +14,7 @@ def minimum_cubes(line: str) -> int:
     for number, color in amounts:
         if current_minimum[color] < int(number):
             current_minimum[color] = int(number)
-    return current_minimum['blue'] * current_minimum['red'] * current_minimum['green']
+    return current_minimum['red'] * current_minimum['green'] * current_minimum['blue']
 
 def silver(puzzle_input):
     i = 1

@@ -1,4 +1,3 @@
-from functools import reduce
 import re
 
 def number_map(matchobj):
