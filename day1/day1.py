@@ -13,18 +13,30 @@ def replace_letters_with_numbers(line: str) -> str:
     return line
 
 def calculate_line(line: str) -> int:
-    line = replace_letters_with_numbers(line)
     nums = []
     for c in line:
         if c.isdigit():
             nums.append(c)
     return int(nums[0] + nums[-1])
 
+def silver(puzzle_input):
+    sum = 0
+    for line in puzzle_input:
+        sum = sum + calculate_line(line)
+    print(f"Silver: {sum}")
+
+def gold(puzzle_input):
+    sum = 0
+    for line in puzzle_input:
+        sum = sum + calculate_line(replace_letters_with_numbers(line))
+    print(f"Gold: {sum}")
+
 if __name__ == "__main__":
     with open("input.txt") as puzzle_input:
         puzzle_input = puzzle_input.readlines()
-        answer = reduce(lambda a,b: a+b, map(calculate_line, puzzle_input))
-        print(answer)
+        silver(puzzle_input)
+        gold(puzzle_input)
+
 
 
 

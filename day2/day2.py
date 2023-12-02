@@ -20,23 +20,23 @@ def minimum_cubes(line: str) -> int:
             current_minimum[color] = int(number)
     return current_minimum['blue'] * current_minimum['red'] * current_minimum['green']
 
-def bronze(puzzle_input):
+def silver(puzzle_input):
     i = 1
     sum = 0
     for line in puzzle_input:
         if line_is_valid(line):
             sum = sum + i
         i = i + 1
-    print(f"Bronze: {sum}")
+    print(f"Silver: {sum}")
 
-def silver(puzzle_input):
+def gold(puzzle_input):
     sum = 0
     for line in puzzle_input:
         sum = sum + minimum_cubes(line)
-    print(f"Silver: {sum}")
+    print(f"Gold: {sum}")
 
 if __name__ == "__main__":
     with open("input.txt") as puzzle_input:
         puzzle_input = puzzle_input.readlines()
-        bronze(puzzle_input)
         silver(puzzle_input)
+        gold(puzzle_input)
